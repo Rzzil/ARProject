@@ -22,6 +22,10 @@ public class Enemy : MonoBehaviour
         positions = WayPoints.positions;
         rigi = GetComponent<Rigidbody>();
     }
+    void Start()
+    {
+        GetComponent<BuildManager>().showQuestion();
+    }
 
     // Update is called once per frame
     void Update()
@@ -49,13 +53,13 @@ public class Enemy : MonoBehaviour
 
     void ReachDestination()
     {
-        //Gm.instance.TakeDamage(damage);
-        Destroy(this.gameObject);
+        Die();
     }
 
     public void Die()
     {
-        Instantiate(deadFX, transform.position, transform.rotation);
+        EnemySpawner.instance.SummonEnemy();
+        //Instantiate(deadFX, transform.position, transform.rotation);
         //TDSoundManager.instance.playDeadSound();
         Destroy(this.gameObject);
     }

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Gm : MonoBehaviour
 {
     public static Gm instance;
+    public Text[] answer;
 
     void Awake()
     {

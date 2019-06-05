@@ -474,6 +474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1011181087718435628}
   - component: {fileID: 2850507997929625922}
+  - component: {fileID: 4142732969916639455}
   m_Layer: 0
   m_Name: Penguin Duck
   m_TagString: Untagged
@@ -512,6 +513,23 @@ MonoBehaviour:
   speed: 10
   damage: 0
   deadFX: {fileID: 0}
+--- !u!114 &4142732969916639455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011181087718340364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d1996c76a8a2644a2ebbee98596a7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstNumber: {fileID: 8929605983996502725}
+  secondNumber: {fileID: 5695327658188136717}
+  firstAnswer: {fileID: 0}
+  SecondAnswer: {fileID: 0}
+  ThirdAnswer: {fileID: 0}
 --- !u!1 &1011181087718340366
 GameObject:
   m_ObjectHideFlags: 0
