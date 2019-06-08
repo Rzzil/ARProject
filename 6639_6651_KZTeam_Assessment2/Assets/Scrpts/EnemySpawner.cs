@@ -17,6 +17,6 @@ public class EnemySpawner : MonoBehaviour
 
     public void SummonEnemy()
     {
-        Instantiate(enemy, startPoint.transform.position, Quaternion.identity);
+        Instantiate(enemy, startPoint.transform.position, Quaternion.identity, startPoint.transform);
     }
 }

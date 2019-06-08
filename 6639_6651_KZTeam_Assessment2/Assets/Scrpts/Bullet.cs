@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int phyDmg = 50;
-    public int magDmg = 50;
 
     public float speed = 20;
 
@@ -32,7 +30,7 @@ public class Bullet : MonoBehaviour
                 //create FX
                 GameObject.Instantiate(hitFX,transform.position, transform.rotation);
                 //create sound FX
-                //TDSoundManager.instance.playHitSound();
+                SoundManager.instance.playHitSound();
                 Die();
             }
         }

@@ -6,6 +6,10 @@ public class Turret : MonoBehaviour
 {
     private List<GameObject> enemies = new List<GameObject>();
 
+    private bool isfirst;
+    private bool issecond;
+    private bool isThrid;
+
     void OnTriggerEnter(Collider col)
     {
         if(col.tag == "Enemy")
@@ -37,6 +41,19 @@ public class Turret : MonoBehaviour
     {
         timer = attackRateTime;
         anim = GetComponent<Animator>();
+
+        if(gameObject.name == "Tower1")
+        {
+            isfirst = true;
+        }
+        else if (gameObject.name == "Tower2")
+        {
+            issecond = true;
+        }
+        else if (gameObject.name == "Tower3")
+        {
+            isThrid = true;
+        }
     }
 
     void Update()
@@ -53,7 +70,21 @@ public class Turret : MonoBehaviour
         if (enemies.Count > 0 && timer >= attackRateTime)
         {
             timer = 0;
-            attack();
+            if(Gm.instance.isFirstTurretShoot && isfirst)
+            {
+                attack();
+                Gm.instance.isFirstTurretShoot = false;
+            }
+            else if(Gm.instance.isSecondTurretShoot && issecond)
+            {
+                attack();
+                Gm.instance.isSecondTurretShoot = false;
+            }
+            else if (Gm.instance.isThirdTurretShoot && isThrid)
+            {
+                attack();
+                Gm.instance.isThirdTurretShoot = false;
+            }
         }
     }
 
@@ -69,8 +100,6 @@ public class Turret : MonoBehaviour
             bullet.GetComponent<Bullet>().SetTarget(enemies[0].transform);
             //create fire fx
             GameObject.Instantiate(fireFX, firePosition.position, firePosition.rotation);
-            //start fire Animation
-            anim.SetTrigger("FireTrigger");
         }
         else
         {

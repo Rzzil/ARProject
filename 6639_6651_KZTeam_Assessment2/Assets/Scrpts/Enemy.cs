@@ -53,14 +53,18 @@ public class Enemy : MonoBehaviour
 
     void ReachDestination()
     {
+        if (Gm.instance.hp >= 1)
+            Gm.instance.hp--;
         Die();
     }
 
     public void Die()
     {
-        EnemySpawner.instance.SummonEnemy();
-        //Instantiate(deadFX, transform.position, transform.rotation);
-        //TDSoundManager.instance.playDeadSound();
+        if (Gm.instance.remain >= 1)
+            Gm.instance.remain--;
+        if (Gm.instance.hp != 0 && Gm.instance.remain != 0)
+            EnemySpawner.instance.SummonEnemy();
+        SoundManager.instance.playDeadSound();
         Destroy(this.gameObject);
     }
 }
